@@ -7,10 +7,11 @@ import { Editor } from "@monaco-editor/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { RotateCcw, Share, Type } from "lucide-react";
-import { useClerk } from "@clerk/nextjs";
+import { SignedIn, useClerk } from "@clerk/nextjs";
 import { EditorPanelSkeleton } from "./EditorPanelSkeleton";
 import useMounted from "@/hooks/useMounted";
 import ShareSnippetDialog from "./ShareSnippetDialog";
+import RunButton from "./RunButton";
 
 const EditorPanel = () => {
   const clerk = useClerk();
@@ -49,34 +50,35 @@ const EditorPanel = () => {
     localStorage.setItem("editor-font-size", size.toString());
   };
 
-  if (!mounted) return null;
+  if (!mounted) return <EditorPanelSkeleton />;
 
   return (
     <div className="relative">
-      <div className="relative bg-[#12121a]/90 backdrop-blur rounded-xl border border-white/[0.05] p-6">
+      <div className="relative bg-[#12121a]/90 backdrop-blur rounded-xl border border-white/[0.05] p-4 sm:p-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#1e1e2e] ring-1 ring-white/5">
+          <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center size-6 sm:size-8 rounded-lg bg-[#1e1e2e] ring-1 ring-white/5">
               <Image
                 src={"/" + language + ".png"}
                 alt="Logo"
+                className="size-4 sm:size-6"
                 width={24}
                 height={24}
               />
             </div>
-            <div>
+            <div className="max-sm:hidden">
               <h2 className="text-sm font-medium text-white">Code Editor</h2>
               <p className="text-xs text-gray-500">
                 Write and execute your code
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             {/* Font Size Slider */}
-            <div className="flex items-center gap-3 px-3 py-2 bg-[#1e1e2e] rounded-lg ring-1 ring-white/5">
-              <Type className="size-4 text-gray-400" />
-              <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 px-1 py-0.5 sm:px-3 sm:py-2 bg-[#1e1e2e] rounded-lg ring-1 ring-white/5">
+              <Type className="size-3.5 sm:size-4 text-gray-400" />
+              <div className="flex items-center sm:gap-3">
                 <input
                   type="range"
                   min="12"
@@ -88,20 +90,21 @@ const EditorPanel = () => {
                   aria-label="Font size range"
                   className="w-20 h-1 bg-gray-600 rounded-lg cursor-pointer"
                 />
-                <span className="text-sm font-medium text-gray-400 min-w-[2rem] text-center">
+                <span className="text-xs sm:text-sm font-medium text-gray-400 min-w-[2rem] text-center">
                   {fontSize}
                 </span>
               </div>
             </div>
 
+            {/* Reset Button */}
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleRefresh}
-              className="p-2 bg-[#1e1e2e] hover:bg-[#2a2a3a] rounded-lg ring-1 ring-white/5 transition-colors"
+              className="p-1 sm:p-2 bg-[#1e1e2e] hover:bg-[#2a2a3a] rounded-lg ring-1 ring-white/5 transition-colors"
               aria-label="Reset to default code"
             >
-              <RotateCcw className="size-4 text-gray-400" />
+              <RotateCcw className="size-3.5 sm:size-4 text-gray-400" />
             </motion.button>
 
             {/* Share Button */}
@@ -109,11 +112,18 @@ const EditorPanel = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setIsShareDialogOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 opacity-90 hover:opacity-100 transition-opacity"
+              className="inline-flex items-center gap-2 p-1 sm:px-4 sm:py-2 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 opacity-90 hover:opacity-100 transition-opacity outline-none"
             >
-              <Share className="size-4 text-white" />
-              <span className="text-sm font-medium text-white ">Share</span>
+              <Share className="size-3.5 sm:size-4 text-white" />
+              <span className="text-sm font-medium text-white max-sm:hidden">
+                Share
+              </span>
             </motion.button>
+
+            {/* Run Button */}
+            <SignedIn>
+              <RunButton className="hidden" />
+            </SignedIn>
           </div>
         </div>
 

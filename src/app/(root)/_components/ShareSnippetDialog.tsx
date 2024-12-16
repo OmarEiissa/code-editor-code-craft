@@ -29,15 +29,18 @@ const ShareSnippetDialog = ({ onClose }: { onClose: () => void }) => {
     }
   };
 
+  document.addEventListener("keydown", (e) => e.key === "Escape" && onClose());
+
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-[#1e1e2e] rounded-lg p-6 w-full max-w-md">
+      <div className="bg-[#1e1e2e] rounded-lg p-6 w-full max-w-md mx-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold text-white">Share Snippet</h2>
           <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-gray-300"
+            type="button"
             aria-label="Close dialog"
+            onClick={onClose}
+            className="text-gray-400 hover:text-gray-300 outline-none"
           >
             <X className="size-5" />
           </button>
