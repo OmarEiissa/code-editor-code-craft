@@ -3,7 +3,7 @@ import LoginButton from "@/components/LoginButton";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { User } from "lucide-react";
 
-const HeaderProfileBtn = () => {
+const HeaderProfileBtn = ({className}: {className?: string}) => {
   return (
     <>
       <SignedIn>
@@ -19,7 +19,7 @@ const HeaderProfileBtn = () => {
       </SignedIn>
 
       <SignedOut>
-        <LoginButton />
+        <LoginButton className={className} />
       </SignedOut>
     </>
   );
