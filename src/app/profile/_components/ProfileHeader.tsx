@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 import { Id } from "../../../../convex/_generated/dataModel";
 
 import { UserResource } from "@clerk/types";
+import Image from "next/image";
 
 interface ProfileHeaderProps {
   userStats: {
@@ -84,9 +85,7 @@ function ProfileHeader({ userStats, userData, user }: ProfileHeaderProps) {
   ];
 
   return (
-    <div
-      className="relative mb-8 bg-gradient-to-br from-[#12121a] to-[#1a1a2e] rounded-2xl p-4 sm:p-8 border border-gray-800/50 overflow-hidden"
-    >
+    <div className="relative mb-8 bg-gradient-to-br from-[#12121a] to-[#1a1a2e] rounded-2xl p-4 sm:p-8 border border-gray-800/50 overflow-hidden">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px]" />
       <div className="relative flex flex-col sm:flex-row items-center gap-6">
         <div className="relative group">
@@ -94,15 +93,15 @@ function ProfileHeader({ userStats, userData, user }: ProfileHeaderProps) {
             className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full 
           blur-xl opacity-50 group-hover:opacity-75 transition-opacity"
           />
-          <img
+          <Image
             src={user.imageUrl}
             alt="Profile"
             className="size-24 rounded-full border-4 border-gray-800/50 relative z-10 group-hover:scale-105 transition-transform"
+            width={96}
+            height={96}
           />
           {userData.isPro && (
-            <div
-              className="absolute -top-2 -right-2 bg-gradient-to-r from-purple-500 to-purple-600 p-2 rounded-full z-20 shadow-lg animate-pulse"
-            >
+            <div className="absolute -top-2 -right-2 bg-gradient-to-r from-purple-500 to-purple-600 p-2 rounded-full z-20 shadow-lg animate-pulse">
               <Zap className="w-4 h-4 text-white" />
             </div>
           )}

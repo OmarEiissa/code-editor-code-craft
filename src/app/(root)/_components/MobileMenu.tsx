@@ -4,8 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Code2, Menu } from "lucide-react";
 import Link from "next/link";
-import { SignedOut } from "@clerk/nextjs";
-import LoginButton from "@/components/LoginButton";
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
