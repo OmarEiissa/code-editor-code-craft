@@ -19,3 +19,56 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ==== clerk class override ===== */
+.cl-providerIcon__github {
+  filter: invert(1);
+}
+
+.cl-socialButtonsBlockButtonText__github,
+.cl-socialButtonsBlockButtonText__google {
+  color: #afb0b5;
+}
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: white;
+}
+
+.cl-internal-1ftpdtb {
+  background-color: #252a41;
+}
+
+.cl-internal-1hp5nqm,
+.cl-internal-lm36wl,
+.cl-internal-1dauvpw {
+  display: none;
+}
+
+.cl-userButtonPopoverCustomItemButton,
+.cl-userButtonPopoverActionButton {
+  color: #ffffffad;
+  transition: 0.3s ease;
+  /* todo: profile color */
+}
+
+.cl-userButtonPopoverCustomItemButton span {
+  color: #fff;
+}
+
+.cl-userButtonPopoverCustomItemButton span,
+.cl-userButtonPopoverActionButton:hover,
+.cl-userButtonPopoverCustomItemButton:hover {
+  color: #fff;
+}
+
+.cl-internal-10jlg2l {
+  max-height: 95vh;
+}
+
+/* .cl-socialButtonsIconButton {
+  border: 30px solid yellow;
+}
+
+.cl-internal-wkkub3 {
+  color: red;
+} */
