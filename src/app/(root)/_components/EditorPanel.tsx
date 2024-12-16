@@ -107,23 +107,23 @@ const EditorPanel = () => {
               <RotateCcw className="size-3.5 sm:size-4 text-gray-400" />
             </motion.button>
 
-            {/* Share Button */}
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setIsShareDialogOpen(true)}
-              className="inline-flex items-center gap-2 p-1 sm:px-4 sm:py-2 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 opacity-90 hover:opacity-100 transition-opacity outline-none"
-            >
-              <Share className="size-3.5 sm:size-4 text-white" />
-              <span className="text-sm font-medium text-white max-sm:hidden">
-                Share
-              </span>
-            </motion.button>
+            <SignedIn>
+              {/* Share Button */}
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsShareDialogOpen(true)}
+                className="inline-flex items-center gap-2 p-1 sm:px-4 sm:py-2 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 opacity-90 hover:opacity-100 transition-opacity outline-none"
+              >
+                <Share className="size-3.5 sm:size-4 text-white" />
+                <span className="text-sm font-medium text-white max-sm:hidden">
+                  Share
+                </span>
+              </motion.button>
+            </SignedIn>
 
             {/* Run Button */}
-            <SignedIn>
-              <RunButton className="hidden" />
-            </SignedIn>
+            <RunButton className="hidden" />
           </div>
         </div>
 

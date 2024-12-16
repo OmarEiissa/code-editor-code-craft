@@ -85,10 +85,10 @@ function ProfileHeader({ userStats, userData, user }: ProfileHeaderProps) {
 
   return (
     <div
-      className="relative mb-8 bg-gradient-to-br from-[#12121a] to-[#1a1a2e] rounded-2xl p-8 border border-gray-800/50 overflow-hidden"
+      className="relative mb-8 bg-gradient-to-br from-[#12121a] to-[#1a1a2e] rounded-2xl p-4 sm:p-8 border border-gray-800/50 overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px]" />
-      <div className="relative flex items-center gap-8">
+      <div className="relative flex flex-col sm:flex-row items-center gap-6">
         <div className="relative group">
           <div
             className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full 
@@ -97,7 +97,7 @@ function ProfileHeader({ userStats, userData, user }: ProfileHeaderProps) {
           <img
             src={user.imageUrl}
             alt="Profile"
-            className="w-24 h-24 rounded-full border-4 border-gray-800/50 relative z-10 group-hover:scale-105 transition-transform"
+            className="size-24 rounded-full border-4 border-gray-800/50 relative z-10 group-hover:scale-105 transition-transform"
           />
           {userData.isPro && (
             <div
@@ -108,7 +108,7 @@ function ProfileHeader({ userStats, userData, user }: ProfileHeaderProps) {
           )}
         </div>
         <div>
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex flex-col sm:flex-row items-center gap-3 mb-2">
             <h1 className="text-3xl font-bold text-white">{userData.name}</h1>
             {userData.isPro && (
               <span className="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm font-medium">

@@ -65,12 +65,6 @@ const MobileMenu = () => {
                 Snippets
               </span>
             </Link>
-
-            <div className="flex sm:hidden">
-              <SignedOut>
-                <LoginButton className="!px-3 !py-1" />
-              </SignedOut>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

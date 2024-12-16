@@ -46,7 +46,7 @@ const SnippetsPage = () => {
       <NavigationHeader />
 
       <div className="relative max-w-7xl mx-auto px-4 py-12">
-        {/* Hero */}
+        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -100,6 +100,8 @@ const SnippetsPage = () => {
 
             {popularLanguages.map((lang) => (
               <button
+                type="button"
+                aria-label="Filter snippets by language"
                 key={lang}
                 onClick={() =>
                   setSelectedLanguage(lang === selectedLanguage ? null : lang)

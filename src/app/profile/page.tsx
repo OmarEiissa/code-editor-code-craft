@@ -81,7 +81,7 @@ const ProfilePage = () => {
         <div className="bg-gradient-to-br from-[#12121a] to-[#1a1a2e] rounded-3xl shadow-2xl shadow-black/50 border border-gray-800/50 backdrop-blur-xl overflow-hidden">
           {/* Tabs */}
           <div className="border-b border-gray-800/50">
-            <div className="flex space-x-1 p-4">
+            <div className="flex max-sm:justify-center max-sm:gap-2 space-x-1 p-2 sm:p-4">
               {TABS.map((tab) => (
                 <button
                   key={tab.id}
@@ -107,8 +107,8 @@ const ProfilePage = () => {
                       }}
                     />
                   )}
-                  <tab.icon className="w-4 h-4 relative z-10" />
-                  <span className="text-sm font-medium relative z-10">
+                  <tab.icon className="size-6 sm:size-4 relative z-10" />
+                  <span className="text-sm font-medium relative z-10 max-sm:hidden">
                     {tab.label}
                   </span>
                 </button>
@@ -124,7 +124,7 @@ const ProfilePage = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="p-6"
+              className="p-4 sm:p-6"
             >
               {/* Active Tab Is Executions */}
               {activeTab === "executions" && (
@@ -142,8 +142,8 @@ const ProfilePage = () => {
                               src={`/${execution.language}.png`}
                               alt={`${execution.language} logo`}
                               className="rounded-lg relative z-10 object-cover"
-                              width={40}
-                              height={40}
+                              width={24}
+                              height={24}
                             />
                           </div>
                           <div className="space-y-1">
@@ -253,8 +253,8 @@ const ProfilePage = () => {
                                     src={`/${snippet.language}.png`}
                                     alt={`${snippet.language} logo`}
                                     className="relative z-10"
-                                    width={40}
-                                    height={40}
+                                    width={24}
+                                    height={24}
                                   />
                                 </div>
                                 <span className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-lg text-sm">

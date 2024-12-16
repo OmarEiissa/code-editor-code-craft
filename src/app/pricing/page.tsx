@@ -110,7 +110,7 @@ const PricingPage = async () => {
                   </SignedIn>
 
                   <SignedOut>
-                    <LoginButton />
+                    <LoginButton spanClass="!block" />
                   </SignedOut>
                 </div>
               </div>

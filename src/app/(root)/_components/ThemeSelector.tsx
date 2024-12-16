@@ -75,7 +75,7 @@ const ThemeSelector = () => {
           />
 
           <ChevronDown
-          className={`size-4 text-gray-400 transition-all duration-300 group-hover:text-gray-300 ${
+          className={`hidden sm:inline size-4 text-gray-400 transition-all duration-300 group-hover:text-gray-300 ${
             isOpen ? "rotate-180" : ""
           }
           `}
