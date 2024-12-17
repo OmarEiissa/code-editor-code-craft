@@ -55,6 +55,7 @@ const ShareSnippetDialog = ({ onClose }: { onClose: () => void }) => {
               Title
             </label>
             <input
+              autoFocus
               type="text"
               id="title"
               value={title}
